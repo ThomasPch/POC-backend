@@ -14,7 +14,14 @@ import { AuthGuard } from './auth.guards';
 
 @Controller('auth')
 export class AuthController {
-  constructor(private authService: AuthService) {}
+  /**
+ * @summary This is a summary of the auth
+ * @tags auth
+ * @description Description of the endpoint
+ * @response 200 {string} OK - The request was successful
+ * @response 401 {string} Not Found - Unauthorized
+ */
+  constructor (private authService: AuthService) { }
 
   @HttpCode(HttpStatus.OK)
   @Post('login')

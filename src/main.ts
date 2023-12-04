@@ -1,5 +1,5 @@
 import { otelSDK } from './telemetry/tracing';
-
+import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { Logger, ValidationPipe } from '@nestjs/common';
@@ -35,11 +35,23 @@ async function bootstrap() {
     }),
   );
 
+  const config = new DocumentBuilder()
+    .setTitle('Documentation PoC Backend SCDI')
+    .setDescription('Documentation PoC Backend SCDI')
+    .setVersion('1.0')
+    .addTag('SCDI')
+    .build();
+  const document = SwaggerModule.createDocument(app, config);
+  SwaggerModule.setup('api', app, document);
+
   //const port = process.env.PORT || 443;
   await app.listen(443, '0.0.0.0');
   Logger.log("i'm up and running");
-  Logger.log(`GraphiQL: https://FR-SahliMA.EYC.COM:443/graphiql`);
+  // Logger.log(`GraphiQL: https://FR-SahliMA.EYC.COM:443/graphiql`);
   // Logger.log(`🚀 Application is running on: http://localhost:${port}`);
-  // Logger.log(`GraphiQL: http://localhost:${port}/graphiql`);
+  Logger.log(`GraphiQL: http://localhost:443/graphiql`);
+  Logger.log(`Documentation Swagger: http://localhost:443/api`);
+
+
 }
 bootstrap();
