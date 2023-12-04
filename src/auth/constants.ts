@@ -1,0 +1,4 @@
+export const jwtConstants = {
+  secret: 'fakeSecret_1234567890',
+};
+//DO NOT USE THIS VALUE. INSTEAD, CREATE A COMPLEX SECRET AND KEEP IT SAFE OUTSIDE OF THE SOURCE CODE.
