@@ -33,5 +33,9 @@ $ npm run test:cov
 $ npm run start:dev
 ```
 
+## Compodoc
 
-
+```bash
+# Generate documentation
+$ npx @compodoc/compodoc -p tsconfig.json -s
+```
