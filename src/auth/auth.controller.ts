@@ -20,6 +20,7 @@ export class AuthController {
  * @description Description of the endpoint
  * @response 200 {string} OK - The request was successful
  * @response 401 {string} Not Found - Unauthorized
+ * @returns Test JSDOC
  */
   constructor (private authService: AuthService) { }
 

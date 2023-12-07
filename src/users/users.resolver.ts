@@ -7,12 +7,17 @@ import { Public } from 'src/auth/decorators/public.decorator';
 
 @Resolver()
 export class UsersResolver {
-  constructor(private readonly usersService: UsersService) {}
+  constructor (private readonly usersService: UsersService) { }
   @Public()
   @Query(() => [Users])
   public async users(@Args() usersArgs: UsersArgs): Promise<Users[]> {
     return this.usersService.findAll(usersArgs);
   }
+  /**
+ * @param {string} id - Titi
+   @params {string} id - Titi2
+ * @returns {Users} Toto 
+ */
   @Public()
   @Query(() => [Users])
   public async users2(@Args() usersArgs: UsersArgs): Promise<Users[]> {
